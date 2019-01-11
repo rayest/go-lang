@@ -7,6 +7,7 @@ import (
 	"fmt"
 )
 
+// defer 延迟执行
 func main() {
 	db, err := sql.Open("mysql", "root:199011081108@/go")
 	if err != nil {
@@ -26,12 +27,12 @@ func main() {
 		panic(err.Error())
 	}
 	rows, err := stmtOut.Query()
+	var id int
+	var name string
+	var singer string
+	var lyricist string
+	var composer string
 	for rows.Next() {
-		var id int
-		var name string
-		var singer string
-		var lyricist string
-		var composer string
 		if err := rows.Scan(&id, &name, &singer, &lyricist, &composer); err != nil {
 			log.Fatal(err)
 		}

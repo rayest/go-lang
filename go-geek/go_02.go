@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"flag"
+	"./go_03" // 引入包
 )
 
 // 输入命令行参数
@@ -16,6 +16,6 @@ func init() {
 
 func main() {
 	flag.Parse()
-
-	fmt.Printf("Hello, %s!\n", name)
+	invokedByGo02(name)
+	go_03.Hello()
 }
